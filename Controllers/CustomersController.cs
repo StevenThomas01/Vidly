@@ -34,7 +34,7 @@ namespace Vidly.Controllers
         [HttpGet]
         public ActionResult Details(int id)
         {
-            var customerDetails = _context.Customers.SingleOrDefault(x => x.Id == id);
+            var customerDetails = _context.Customers.Include(x => x.MembershipType).SingleOrDefault(x => x.Id == id);
 
             if (customerDetails == null)
                 return HttpNotFound();
