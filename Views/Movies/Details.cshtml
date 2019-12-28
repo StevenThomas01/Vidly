@@ -8,3 +8,18 @@
 <h2>Movie Details</h2>
 
 <text>@Model.Name</text>
+
+<ul>
+    <li>Genre: @Model.Genre.Name</li>
+    @if (@Model.DateAdded.HasValue)
+    {
+        <li>Date Added: @Model.DateAdded.Value.ToShortDateString()</li>
+    }
+
+    @if (@Model.ReleaseDate.HasValue)
+    {
+        <li>Release Date: @Model.ReleaseDate.Value.ToShortDateString()</li>
+    }
+
+    <li>Number in Stock: @Model.NumberInStock.ToString()</li>
+</ul>
